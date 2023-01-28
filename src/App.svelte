@@ -57,7 +57,7 @@
 <h1>Compilator</h1>
 <p>
   Reduce your code with 90% using our Svelte compiler. Get exclusive Alpha
-  access and several beneficial grants by submitting your email below
+  access and several beneficial grants by submitting your email below.
 </p>
 <div class="inputwrapper">
   <form id="myForm">
