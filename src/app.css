@@ -1,0 +1,170 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #2e294e;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 4vh 0;
+  display: flex;
+  align-items: center;
+  min-width: 320px;
+  min-height: 60vh;
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+}
+
+.logo {
+  height: 8vh;
+  cursor: pointer;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.input-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.form-input {
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 5px solid #fff;
+  background-color: #fff;
+  color: #000;
+  border-radius: 3px;
+}
+
+.button {
+  margin-left: -3px;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+p {
+  word-wrap: break-word;
+  width: 70vh;
+  font-size: 1.6rem;
+}
+
+.inputwrapper {
+  margin-top: 10vh;
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+.waitlist-message {
+  text-align: center;
+  margin-top: 70vh;
+  transform: translate(-100%, 0);
+}
+
+#waitlistMessage {
+  display: none;
+  animation: fadeIn 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+#appvector {
+  margin-top: 10vh;
+  height: 40vh;
+}
+
+#appvector:hover {
+  animation: vectorHover 1400ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+#appvector:not(:hover) {
+  animation: vectorHoverOut 750ms ease-in-out;
+}
+
+@keyframes vectorHover {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+
+@keyframes vectorHoverOut {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem; /* reduce font size for smaller devices */
+  }
+
+  .logo {
+    height: 6vh;
+  }
+
+  form {
+    font-size: 0.8rem; /* reduce form font size for smaller devices */
+  }
+
+  p {
+    font-size: 1rem;
+    word-break: break-word;
+    width: 30vh;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #appvector {
+    height: 30vh;
+  }
+}
