@@ -16,9 +16,10 @@
       const response = await fetch('https://emails1.merkulov.ai/save-text', {
         method: 'POST',
         headers: {
-          'Content-Type': 'text/plain',
-        },
-        body: email,
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      body: JSON.stringify({ email }),
       });
       if (response.ok) {
         setTimeout(function () {
