@@ -14,6 +14,7 @@
     form.classList.add("fadeOut");
     try {
       const response = await fetch('https://emails1.merkulov.ai/save-text', {
+        mode: 'no-cors',
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
