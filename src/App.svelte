@@ -13,7 +13,7 @@
     const form = document.getElementById("myForm");
     form.classList.add("fadeOut");
     try {
-      const response = await fetch('http://emails1.merkulov.ai/save-text', {
+      const response = await fetch('https://emails1.merkulov.ai/save-text', {
         method: 'POST',
         headers: {
           'Content-Type': 'text/plain',
