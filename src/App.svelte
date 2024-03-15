@@ -20,7 +20,7 @@
         'Content-Type': 'application/json',
         'accept': 'application/json',
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ text: email }),
       });
       if (response.ok) {
         setTimeout(function () {
