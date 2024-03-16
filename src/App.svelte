@@ -12,27 +12,25 @@
     event.preventDefault();
     const form = document.getElementById("myForm");
     form.classList.add("fadeOut");
-    try {
-      const response = await fetch('https://emails1.merkulov.ai/save-text', {
-        mode: 'no-cors',
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json',
-        'accept': 'application/json',
-      },
-      body: JSON.stringify({ "text": email }),
-      });
-      if (response.ok) {
-        setTimeout(function () {
-          form.style.display = "none";
-          waitlistMessage();
-        }, 500);
-      } else {
-        console.error('Failed to send email');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify({
+  "text": "Hello, Mom2!"
+});
+
+const requestOptions = {
+  method: "POST",
+  mode: "no-cors",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+fetch("https://emails1.merkulov.ai/save-text", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
   }
 
   function waitlistMessage() {
