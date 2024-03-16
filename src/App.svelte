@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import axios from 'axios'; // Импортируем axios
   import svelteLogo from "./assets/upload-svgrepo-com.svg";
 
   let email = "";
@@ -15,27 +16,24 @@
     const bbbb = JSON.stringify({ "text": email });
     console.log(bbbb);
     try {
-      const response = await fetch('https://emails1.merkulov.ai/save-text', {
-        mode: 'no-cors',
-        method: 'POST',
+      // Используем axios для отправки POST запроса
+      const response = await axios({
+        method: 'post',
+        url: 'https://emails1.merkulov.ai/save-text',
+        data: bbbb,
         headers: {
           'Content-Type': 'application/json',
         },
-        body: bbbb,
       });
-      if (response.ok) {
-        setTimeout(function () {
-          form.style.display = "none";
-          waitlistMessage();
-        }, 500);
-      } else {
-        console.error(`Failed to send email: ${response.statusText}`);
-      }
+      // Проверяем статус ответа, axios автоматически обрабатывает статусы 200-299 как успешные
+      setTimeout(function () {
+        form.style.display = "none";
+        waitlistMessage();
+      }, 500);
     } catch (error) {
       console.error('Error:', error);
     }
   }
-
 
   function waitlistMessage() {
     const waitlistMessage = document.getElementById("waitlistMessage");
@@ -44,13 +42,16 @@
   }
 
   function textHoverEffect() {
-    // Your existing textHoverEffect function
+    // Ваша существующая функция textHoverEffect
   }
 
   onMount(() => {
     document.getElementById("waitlistMessage").style.display = "none";
   });
 </script>
+
+<!-- Ваш HTML и стили остаются без изменений -->
+
 
 <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" on:click={refreshPage} />
 
