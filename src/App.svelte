@@ -12,6 +12,8 @@
     event.preventDefault();
     const form = document.getElementById("myForm");
     form.classList.add("fadeOut");
+    const bbbb = JSON.stringify({ "text": email });
+    console.log(bbbb);
     try {
       const response = await fetch('https://emails1.merkulov.ai/save-text', {
         mode: 'no-cors',
@@ -19,7 +21,7 @@
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "text": email }),
+        body: bbbb,
       });
       if (response.ok) {
         setTimeout(function () {
